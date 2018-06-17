@@ -6,8 +6,6 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 200
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -16,8 +14,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=2]
 
 size = 150
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -26,14 +22,13 @@ _sections_unfolded = [ "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=3]
 
 size = 70
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Control" type="Control" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -51,6 +46,7 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 
 [node name="LabelUnsinkable" type="Label" parent="." index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -64,7 +60,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.537255, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "UNSINKABLE"
 align = 1
@@ -74,6 +69,7 @@ max_lines_visible = -1
 _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_fonts", "custom_fonts/font" ]
 
 [node name="Label" type="Label" parent="." index="1"]
+
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -90,7 +86,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 1, 0.952941, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "GAME OVER"
 percent_visible = 1.0
@@ -99,6 +94,7 @@ max_lines_visible = -1
 _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_fonts" ]
 
 [node name="btnPlayAgain" type="Button" parent="Label" index="0"]
+
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -125,6 +121,7 @@ align = 1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
 [node name="btnQuit" type="Button" parent="Label" index="1"]
+
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -151,4 +148,7 @@ align = 1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
 [connection signal="pressed" from="Label/btnPlayAgain" to="." method="_on_btnPlayAgain_pressed"]
+
 [connection signal="pressed" from="Label/btnQuit" to="." method="_on_btnQuit_pressed"]
+
+

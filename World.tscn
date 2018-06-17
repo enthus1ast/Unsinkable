@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Kohlehaufen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://schaufel.png" type="Texture" id=5]
 [ext_resource path="res://havestone.png" type="Texture" id=6]
-[ext_resource path="res://titanic.png" type="Texture" id=7]
-[ext_resource path="res://smoke.png" type="Texture" id=8]
+[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://titanic.png" type="Texture" id=8]
+[ext_resource path="res://smoke.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -245,6 +246,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="rightBound" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 modulate = Color( 0, 0.164706, 0.937255, 1 )
 position = Vector2( 1219.03, -3792.8 )
 scale = Vector2( 1, 141.493 )
@@ -459,33 +461,13 @@ exp_edit = false
 rounded = false
 percent_visible = true
 
-[node name="ButtonFullscreen" type="Button" parent="CanvasLayer" index="2"]
-
-anchor_left = 1.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-margin_left = -75.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "fullscreen"
-flat = false
-align = 1
+[node name="ButtonFullscreen" parent="CanvasLayer" index="2" instance=ExtResource( 7 )]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." index="4" groups=[
 "ship",
 ]]
 
+editor/display_folded = true
 position = Vector2( 640.481, 240.21 )
 input_pickable = false
 collision_layer = 1
@@ -551,7 +533,7 @@ texture = ExtResource( 2 )
 
 position = Vector2( -0.319092, -1.1861 )
 scale = Vector2( 0.0281108, 0.0281108 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="3"]
 
@@ -569,7 +551,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -600,7 +582,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 14 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -645,8 +627,6 @@ _sections_unfolded = [ "Visibility" ]
 shape = SubResource( 8 )
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]
-
-[connection signal="pressed" from="CanvasLayer/ButtonFullscreen" to="." method="_on_ButtonFullscreen_pressed"]
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_RigidBody2D_body_entered"]
 

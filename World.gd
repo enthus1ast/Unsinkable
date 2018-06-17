@@ -3,6 +3,7 @@ extends Control
 var schaufelIn = false
 var power = 50
 var deltasum = 0
+var deltasumSchaufel = 0
 onready var shipBody = $RigidBody2D
 var currentTime = 0
 var oldVelocity = Vector2(0,0)
@@ -43,9 +44,14 @@ func _ready():
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
+	deltasumSchaufel += delta
 	if keys.rsiPower:
-		print("rsiPower")
+#		print("rsiPower")
 		power += delta * 20
+		if deltasumSchaufel > 0.20:
+			schaufelIn = not schaufelIn
+			deltasumSchaufel = 0
+		
 	
 	$CanvasLayer/Control/ProgressBar.value = power
 	deltasum += delta
@@ -62,6 +68,7 @@ func _process(delta):
 func _physics_process(delta):
 	if $CanvasLayer/Lives.value <= 0:
 		power = 0
+		clearKeys()
 	
 	shipBody.apply_impulse(Vector2(0,0), Vector2(0, -(power / 3) * delta ).rotated(shipBody.rotation) )
 	
@@ -132,9 +139,9 @@ func _on_RigidBody2D_body_entered(body):
 	if body.is_in_group("winner"):
 		$CanvasLayer/Control/time/Timer.stop()
 
-func _on_ButtonFullscreen_pressed():
-	pass # Replace with function body.
-	OS.window_fullscreen = !OS.window_fullscreen
+#func _on_ButtonFullscreen_pressed():
+#	pass # Replace with function body.
+#	OS.window_fullscreen = !OS.window_fullscreen
 
 
 

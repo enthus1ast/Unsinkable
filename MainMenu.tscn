@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 200
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -16,7 +17,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 20
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -24,10 +25,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 70
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -45,7 +46,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="CheckBox" type="CheckBox" parent="." index="0"]
+[node name="ButtonFullscreen" parent="." index="0" instance=ExtResource( 2 )]
+
+margin_left = -72.0
+margin_top = 6.0
+margin_right = 3.0
+margin_bottom = 26.0
+
+[node name="CheckBox" type="CheckBox" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -55,7 +63,7 @@ margin_top = -24.0
 margin_right = 108.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 1
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -92,27 +100,30 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="code0" type="Label" parent="." index="1"]
+[node name="code0" type="Label" parent="." index="2"]
 
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -252.0
-margin_top = -14.0
-margin_right = -11.0
+margin_left = -262.0
+margin_top = -44.0
+margin_right = -6.0
+margin_bottom = 4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "a (one day) game by games.code0.xyz"
+text = "a (one day) game by games.code0.xyz
+\"art\"work & programming David Krause
+guitar by Jan ??? , drums by Daniel Wenz"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="LabelUnsinkable" type="Label" parent="." index="2"]
+[node name="LabelUnsinkable" type="Label" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0

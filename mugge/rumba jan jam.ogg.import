@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rumba jan jam.ogg-911df3e41e1ff8d91da00deb744e1d15.oggstr"
+
+[deps]
+
+source_file="res://mugge/rumba jan jam.ogg"
+dest_files=[ "res://.import/rumba jan jam.ogg-911df3e41e1ff8d91da00deb744e1d15.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

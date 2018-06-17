@@ -8,11 +8,12 @@ var currentTime = 0
 var oldVelocity = Vector2(0,0)
 onready var schaufel = $CanvasLayer/Control/ProgressBar/schaufel
 onready var kohleAufSchaufel = $CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel
+onready var foam = get_node("RigidBody2D/foam")
 var keys = {}
 
 
 func clearKeys():
-	keys = {"steerLeft": false, "steerRight": false}
+	keys = {"steerLeft": false, "steerRight": false, "rsiPower": false}
 
 func chooseEisberg():
 	var dice = randi() % 2
@@ -31,7 +32,7 @@ func spawnEisbergs():
 			add_child(eisberg)
 			eisberg.position = Vector2( randi() % 1280, - (yidx * 100) ) #, randi() % 8320 ) 
 			eisberg.rotation_degrees = randi() % 360
-			print(eisberg.position)
+#			print(eisberg.position)
 	
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -42,7 +43,10 @@ func _ready():
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-	pass
+	if keys.rsiPower:
+		print("rsiPower")
+		power += delta * 20
+	
 	$CanvasLayer/Control/ProgressBar.value = power
 	deltasum += delta
 	if deltasum > 0.2:
@@ -68,6 +72,10 @@ func _physics_process(delta):
 		var imp = Vector2((power / 1.5 ) * delta, 0)
 		shipBody.apply_impulse($RigidBody2D/PositionRight.position, imp)
 	oldVelocity = shipBody.linear_velocity
+	if shipBody.linear_velocity.length()>4:
+		foam.emitting = true
+	else:
+		foam.emitting = false
 
 func kohleRein():
 	power += 5
@@ -81,7 +89,7 @@ func _input(event):
 		if not schaufelIn:
 			schaufelIn = true
 			kohleRein()
-			
+						
 	if event.is_action_pressed("steerLeft"):
 		keys.steerLeft = true
 	if event.is_action_released("steerLeft"):
@@ -91,6 +99,12 @@ func _input(event):
 		keys.steerRight = true
 	if event.is_action_released("steerRight"):
 		keys.steerRight = false
+		
+	if config.rsi:
+		if event.is_action_pressed("ui_up"):
+			keys.rsiPower = true
+		if event.is_action_released("ui_up"):
+			keys.rsiPower = false
 
 func _on_Timer_timeout():
 	pass # replace with function body

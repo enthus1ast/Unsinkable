@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -128,6 +128,76 @@ _sections_unfolded = [ "Angle", "Gravity", "Scale", "Spread" ]
 custom_solver_bias = 0.0
 radius = 5.73303
 height = 43.1641
+
+[sub_resource type="CanvasItemMaterial" id=9]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 0
+
+[sub_resource type="Gradient" id=10]
+
+offsets = PoolRealArray( 0, 0.270455, 0.75, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.582031, 0.582031, 0.582031, 1, 0.234375, 0.234375, 0.234375, 1, 0.0117188, 0.0117188, 0.0117188, 1 )
+
+[sub_resource type="GradientTexture" id=11]
+
+flags = 4
+gradient = SubResource( 10 )
+width = 2048
+
+[sub_resource type="Curve" id=12]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.237552 ), 0.0, 0.0, 0, 0, Vector2( 0.590378, 0.7674 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+
+flags = 4
+width = 2048
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 15.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 13 )
+color_ramp = SubResource( 11 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Scale", "Spread", "Trail" ]
 
 [sub_resource type="RectangleShape2D" id=8]
 
@@ -416,7 +486,7 @@ align = 1
 "ship",
 ]]
 
-position = Vector2( 640.481, 511.429 )
+position = Vector2( 640.481, 240.21 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -465,6 +535,7 @@ editor_draw_drag_margin = false
 
 [node name="icon" type="Sprite" parent="RigidBody2D" index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -1.55786, -1.02429 )
 scale = Vector2( 0.349319, 1 )
@@ -510,11 +581,36 @@ position = Vector2( -0.17439, 0.97531 )
 scale = Vector2( 1.22336, 1.10896 )
 shape = SubResource( 7 )
 
-[node name="PositionLeft" type="Position2D" parent="RigidBody2D" index="5"]
+[node name="foam" type="Particles2D" parent="RigidBody2D" index="5"]
+
+show_behind_parent = true
+material = SubResource( 9 )
+scale = Vector2( 0.5, 0.5 )
+emitting = false
+amount = 8
+lifetime = 15.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 14 )
+texture = ExtResource( 8 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="PositionLeft" type="Position2D" parent="RigidBody2D" index="6"]
 
 position = Vector2( -18.2939, 28.8268 )
 
-[node name="PositionRight" type="Position2D" parent="RigidBody2D" index="6"]
+[node name="PositionRight" type="Position2D" parent="RigidBody2D" index="7"]
 
 position = Vector2( 17.5548, 28.8268 )
 

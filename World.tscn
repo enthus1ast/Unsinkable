@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://eisberg.tscn" type="PackedScene" id=3]
-[ext_resource path="res://smoke.png" type="Texture" id=4]
+[ext_resource path="res://ofen.png" type="Texture" id=3]
+[ext_resource path="res://Kohlehaufen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://schaufel.png" type="Texture" id=5]
+[ext_resource path="res://havestone.png" type="Texture" id=6]
+[ext_resource path="res://titanic.png" type="Texture" id=7]
+[ext_resource path="res://smoke.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 28.0124, 24.0514 )
@@ -66,20 +70,20 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=4]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0.000612883, 0.295898 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
+[sub_resource type="CurveTexture" id=5]
 
 flags = 4
 width = 2048
-curve = SubResource( 7 )
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -108,7 +112,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 8 )
+scale_curve = SubResource( 5 )
 color = Color( 1, 1, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -119,18 +123,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Gravity", "Scale", "Spread" ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=7]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 30.3273 )
+radius = 5.73303
+height = 43.1641
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32.6964, 31.2136 )
 
 [node name="World" type="Control" index="0"]
-
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -144,16 +148,14 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 
 [node name="leftBound" type="Sprite" parent="." index="0"]
-
 editor/display_folded = true
-modulate = Color( 0.9375, 0, 0, 1 )
+modulate = Color( 0, 0.164706, 0.937255, 1 )
 position = Vector2( -31.0316, -3820.27 )
 scale = Vector2( 1, 141.493 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="leftBound" index="0"]
-
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -163,22 +165,19 @@ friction = 1.0
 bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftBound/StaticBody2D" index="0"]
-
 scale = Vector2( 1.65324, 1.30312 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="rightBound" type="Sprite" parent="." index="1"]
-
 editor/display_folded = true
-modulate = Color( 0.9375, 0, 0, 1 )
+modulate = Color( 0, 0.164706, 0.937255, 1 )
 position = Vector2( 1219.03, -3792.8 )
 scale = Vector2( 1, 141.493 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rightBound" index="0"]
-
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -188,44 +187,33 @@ friction = 1.0
 bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightBound/StaticBody2D" index="0"]
-
 scale = Vector2( 1.65324, 1.30312 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="eisberg" parent="." index="2" instance=ExtResource( 3 )]
-
-[node name="eisberg2" parent="." index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 931.714, -153.809 )
-
-[node name="eisberg3" parent="." index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 341.662, -447.025 )
-
-[node name="eisberg4" parent="." index="5" instance=ExtResource( 3 )]
-
-position = Vector2( 841.215, -628.022 )
-
-[node name="eisberg5" parent="." index="6" instance=ExtResource( 3 )]
-
-position = Vector2( 464.74, -772.82 )
-
-[node name="eisberg6" parent="." index="7" instance=ExtResource( 3 )]
-
-position = Vector2( 808.635, -990.017 )
-
-[node name="eisberg7" parent="." index="8" instance=ExtResource( 3 )]
-
-position = Vector2( 345.282, -1123.95 )
-
-[node name="eisberg8" parent="." index="9" instance=ExtResource( 3 )]
-
-position = Vector2( 794.156, -1395.45 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
-
+[node name="rightBound2" type="Sprite" parent="." index="2"]
 editor/display_folded = true
+modulate = Color( 0, 0.14902, 0.737255, 1 )
+position = Vector2( 594.608, 690.796 )
+scale = Vector2( 20.4891, 0.371336 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rightBound2" index="0"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightBound2/StaticBody2D" index="0"]
+scale = Vector2( 1.65324, 1.30312 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -233,7 +221,6 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
-
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -251,7 +238,6 @@ size_flags_vertical = 3
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="time" type="Label" parent="CanvasLayer/Control" index="0"]
-
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -271,22 +257,21 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Control/time" index="0"]
-
 process_mode = 1
 wait_time = 0.1
 one_shot = false
 autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" index="1"]
-
+self_modulate = Color( 1, 1, 1, 0.682353 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -46.0
-margin_top = -26.0
-margin_right = 101.0
-margin_bottom = 11.0
+margin_left = -83.0
+margin_top = -30.0
+margin_right = -34.0
+margin_bottom = 8.0
 rect_rotation = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -303,11 +288,63 @@ page = 0.0
 value = 10.0
 exp_edit = false
 rounded = false
+allow_greater = false
+allow_lesser = false
 percent_visible = false
-_sections_unfolded = [ "Percent", "Rect", "custom_styles" ]
+_sections_unfolded = [ "Percent", "Rect", "Visibility", "custom_styles" ]
+
+[node name="ofen" type="Sprite" parent="CanvasLayer/Control/ProgressBar" index="0"]
+show_behind_parent = true
+position = Vector2( 78.9208, 66.2018 )
+rotation = 1.58269
+scale = Vector2( 0.317241, 0.317241 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Node" parent="CanvasLayer/Control/ProgressBar/ofen" index="0" instance=ExtResource( 4 )]
+position = Vector2( -471.67, 273.659 )
+scale = Vector2( 5.42992, 3.55683 )
+
+[node name="schaufel" type="Sprite" parent="CanvasLayer/Control/ProgressBar" index="1"]
+position = Vector2( 50.3944, -40.0942 )
+rotation = 1.10324
+scale = Vector2( 0.127781, 0.127781 )
+texture = ExtResource( 5 )
+flip_h = true
+_sections_unfolded = [ "Offset" ]
+
+[node name="kohleAufSchaufel" type="Node2D" parent="CanvasLayer/Control/ProgressBar/schaufel" index="0"]
+position = Vector2( -423.13, -13.0889 )
+
+[node name="havestone13" type="Sprite" parent="CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel" index="0"]
+modulate = Color( 0.402344, 0.402344, 0.402344, 1 )
+position = Vector2( 267.68, 352.481 )
+rotation = 0.479447
+scale = Vector2( 4.49782, 2.94627 )
+texture = ExtResource( 6 )
+
+[node name="havestone14" type="Sprite" parent="CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel" index="1"]
+modulate = Color( 0.402344, 0.402344, 0.402344, 1 )
+position = Vector2( 210.253, 413.843 )
+rotation = 0.479447
+scale = Vector2( 4.49782, 2.94627 )
+texture = ExtResource( 6 )
+
+[node name="havestone15" type="Sprite" parent="CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel" index="2"]
+modulate = Color( 0.402344, 0.402344, 0.402344, 1 )
+position = Vector2( 153.497, 303.646 )
+rotation = 0.479447
+scale = Vector2( 4.49782, 2.94627 )
+texture = ExtResource( 6 )
+
+[node name="havestone16" type="Sprite" parent="CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel" index="3"]
+modulate = Color( 0.402344, 0.402344, 0.402344, 1 )
+position = Vector2( 137.4, 370.447 )
+rotation = 0.479447
+scale = Vector2( 4.49782, 2.94627 )
+texture = ExtResource( 6 )
 
 [node name="Lives" type="ProgressBar" parent="CanvasLayer" index="1"]
-
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -326,10 +363,12 @@ page = 0.0
 value = 5.0
 exp_edit = false
 rounded = false
+allow_greater = false
+allow_lesser = false
 percent_visible = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." index="11"]
-
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="4"]
+editor/display_folded = true
 position = Vector2( 640.481, 511.429 )
 input_pickable = false
 collision_layer = 1
@@ -352,7 +391,6 @@ angular_damp = -1.0
 _sections_unfolded = [ "Linear" ]
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D" index="0"]
-
 position = Vector2( 4.01697, -246.814 )
 anchor_mode = 1
 rotating = false
@@ -378,20 +416,22 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 
 [node name="icon" type="Sprite" parent="RigidBody2D" index="1"]
-
-editor/display_folded = true
+visible = false
 position = Vector2( -1.55786, -1.02429 )
 scale = Vector2( 0.349319, 1 )
 texture = ExtResource( 2 )
 
 [node name="icon" type="Sprite" parent="RigidBody2D/icon" index="0"]
-
 position = Vector2( 3.11902, 29.6234 )
 scale = Vector2( 1.71342, 0.0982738 )
 texture = ExtResource( 2 )
 
-[node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="2"]
+[node name="titanic" type="Sprite" parent="RigidBody2D" index="2"]
+position = Vector2( -0.319092, -1.1861 )
+scale = Vector2( 0.0281108, 0.0281108 )
+texture = ExtResource( 7 )
 
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="3"]
 emitting = true
 amount = 20
 lifetime = 15.0
@@ -405,35 +445,32 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 9 )
-texture = ExtResource( 4 )
+process_material = SubResource( 6 )
+texture = ExtResource( 8 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="4"]
+position = Vector2( -0.17439, 0.97531 )
+scale = Vector2( 1.22336, 1.10896 )
+shape = SubResource( 7 )
 
-shape = SubResource( 1 )
-
-[node name="PositionLeft" type="Position2D" parent="RigidBody2D" index="4"]
-
+[node name="PositionLeft" type="Position2D" parent="RigidBody2D" index="5"]
 position = Vector2( -18.2939, 28.8268 )
 
-[node name="PositionRight" type="Position2D" parent="RigidBody2D" index="5"]
-
+[node name="PositionRight" type="Position2D" parent="RigidBody2D" index="6"]
 position = Vector2( 17.5548, 28.8268 )
 
-[node name="icon" type="Sprite" parent="." index="12"]
-
+[node name="icon" type="Sprite" parent="." index="5"]
 position = Vector2( 543.836, -18889.2 )
 scale = Vector2( 12.9126, 3.38201 )
 texture = ExtResource( 2 )
 
-[node name="winner" type="Area2D" parent="." index="13" groups=[
+[node name="winner" type="Area2D" parent="." index="6" groups=[
 "winner",
 ]]
-
 editor/display_folded = true
 position = Vector2( 607.518, -8321.56 )
 scale = Vector2( 21.4051, 3.38201 )
@@ -446,18 +483,12 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="icon2" type="Sprite" parent="winner" index="0"]
-
 modulate = Color( 0.187683, 0.960938, 0, 1 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winner" index="1"]
-
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]
-
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_RigidBody2D_body_entered"]
-
-

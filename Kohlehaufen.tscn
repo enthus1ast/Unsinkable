@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://havestone.png" type="Texture" id=1]
+
+[node name="Node" type="Node2D" index="0"]
+
+[node name="havestone" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 1.2254, -18.7244 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone2" type="Sprite" parent="." index="1"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 14.664, -22.6387 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone3" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( -9.84515, -12.4419 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone4" type="Sprite" parent="." index="3"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( -9.711, -24.9232 )
+rotation = 2.75938
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone5" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 3.22394, -30.2656 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone6" type="Sprite" parent="." index="5"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 11.4388, -11.6021 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone7" type="Sprite" parent="." index="6"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( -14.2631, -0.178894 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone12" type="Sprite" parent="." index="7"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 0.335022, -4.42896 )
+rotation = 1.32775
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone8" type="Sprite" parent="." index="8"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 5.81122, 3.13031 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone9" type="Sprite" parent="." index="9"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( -6.60358, -1.53986 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone10" type="Sprite" parent="." index="10"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( 16.3271, -3.06836 )
+rotation = 0.73187
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="havestone11" type="Sprite" parent="." index="11"]
+
+modulate = Color( 0.507812, 0.507812, 0.507812, 1 )
+position = Vector2( -5.12463, 11.2441 )
+rotation = 1.02555
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+

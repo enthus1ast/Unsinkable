@@ -18,3 +18,8 @@ func _ready():
 func _on_btnPlayAgain_pressed():
 	pass # Replace with function body.
 	get_tree().change_scene("res://World.tscn")
+
+
+func _on_btnQuit_pressed():
+	pass # Replace with function body.
+	get_tree().quit()

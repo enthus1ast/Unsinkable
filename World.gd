@@ -117,3 +117,15 @@ func _on_RigidBody2D_body_entered(body):
 	
 	if body.is_in_group("winner"):
 		$CanvasLayer/Control/time/Timer.stop()
+
+func _on_ButtonFullscreen_pressed():
+	pass # Replace with function body.
+	OS.window_fullscreen = !OS.window_fullscreen
+
+
+
+func _on_winner_body_entered(body):
+	pass # Replace with function body.
+	if body.is_in_group("winner"):
+		$CanvasLayer/Control/time/Timer.stop()
+		get_tree().change_scene("res://Winner.tscn")

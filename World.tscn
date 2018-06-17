@@ -109,7 +109,7 @@ tangential_accel_random = 0.0
 damping = 0.0
 damping_random = 0.0
 angle = 0.0
-angle_random = 0.0
+angle_random = 1.0
 scale = 1.0
 scale_random = 0.0
 scale_curve = SubResource( 5 )
@@ -121,7 +121,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Gravity", "Scale", "Spread" ]
+_sections_unfolded = [ "Angle", "Gravity", "Scale", "Spread" ]
 
 [sub_resource type="CapsuleShape2D" id=7]
 
@@ -221,6 +221,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -367,8 +368,29 @@ allow_greater = false
 allow_lesser = false
 percent_visible = true
 
+[node name="ButtonFullscreen" type="Button" parent="CanvasLayer" index="2"]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -75.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "fullscreen"
+flat = false
+align = 1
+
 [node name="RigidBody2D" type="RigidBody2D" parent="." index="4"]
-editor/display_folded = true
 position = Vector2( 640.481, 511.429 )
 input_pickable = false
 collision_layer = 1
@@ -439,7 +461,7 @@ one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
 explosiveness = 0.0
-randomness = 0.0
+randomness = 1.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
@@ -450,7 +472,7 @@ texture = ExtResource( 8 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "process_material" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="4"]
 position = Vector2( -0.17439, 0.97531 )
@@ -471,7 +493,6 @@ texture = ExtResource( 2 )
 [node name="winner" type="Area2D" parent="." index="6" groups=[
 "winner",
 ]]
-editor/display_folded = true
 position = Vector2( 607.518, -8321.56 )
 scale = Vector2( 21.4051, 3.38201 )
 input_pickable = true
@@ -491,4 +512,6 @@ _sections_unfolded = [ "Visibility" ]
 shape = SubResource( 8 )
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/ButtonFullscreen" to="." method="_on_ButtonFullscreen_pressed"]
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_RigidBody2D_body_entered"]
+[connection signal="body_entered" from="winner" to="." method="_on_winner_body_entered"]

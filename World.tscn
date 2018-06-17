@@ -150,7 +150,6 @@ script = ExtResource( 1 )
 
 [node name="leftBound" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 modulate = Color( 0, 0.164706, 0.937255, 1 )
 position = Vector2( -31.0316, -3820.27 )
 scale = Vector2( 1, 141.493 )
@@ -169,13 +168,13 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftBound/StaticBody2D" index="0"]
 
-scale = Vector2( 1.65324, 1.30312 )
+position = Vector2( 0, -0.216645 )
+scale = Vector2( 1.65324, 1.34544 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="rightBound" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
 modulate = Color( 0, 0.164706, 0.937255, 1 )
 position = Vector2( 1219.03, -3792.8 )
 scale = Vector2( 1, 141.493 )
@@ -184,6 +183,8 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rightBound" index="0"]
 
+position = Vector2( 0, -0.396616 )
+scale = Vector2( 1, 1.03683 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -411,7 +412,9 @@ text = "fullscreen"
 flat = false
 align = 1
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." index="4"]
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="4" groups=[
+"ship",
+]]
 
 position = Vector2( 640.481, 511.429 )
 input_pickable = false

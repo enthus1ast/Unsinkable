@@ -126,6 +126,6 @@ func _on_ButtonFullscreen_pressed():
 
 func _on_winner_body_entered(body):
 	pass # Replace with function body.
-	if body.is_in_group("winner"):
+	if body.is_in_group("ship"):
 		$CanvasLayer/Control/time/Timer.stop()
 		get_tree().change_scene("res://Winner.tscn")

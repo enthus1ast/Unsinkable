@@ -14,7 +14,12 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func _on_ButtonFullscreen_pressed():
-	pass # Replace with function body.
-	print("foo")
+#func _on_ButtonFullscreen_pressed():
+#	pass # Replace with function body.
+#	print("foo")
+#	OS.window_fullscreen = !OS.window_fullscreen
+
+func _on_ButtonFullscreen_toggled(button_pressed):
+	pass # replace with function body
+	print("butto fullscreen")
 	OS.window_fullscreen = !OS.window_fullscreen

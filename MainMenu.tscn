@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 size = 22
 use_mipmaps = false
@@ -27,7 +27,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 200
 use_mipmaps = false
@@ -130,7 +130,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.917969, 0.493183, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "Controls:
@@ -221,7 +221,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.537255, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "UNSINKABLE"
@@ -234,7 +234,7 @@ _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Size Flags", "Visibilit
 [node name="steeringWheel" type="Sprite" parent="LabelUnsinkable" index="0"]
 
 position = Vector2( 512, 476 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.648438, 0.648438 )
 texture = ExtResource( 8 )
 script = ExtResource( 9 )
 _sections_unfolded = [ "Offset", "Transform" ]

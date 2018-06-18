@@ -3,15 +3,14 @@ extends Sprite
 
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	rotation = global_position.angle_to_point( get_global_mouse_position() )
 	pass
 
 
 func _process(delta):
 	var startDir = rotation
 	var dir = global_position.angle_to_point( get_global_mouse_position() )
-	rotation = angleLerp(startDir,dir,0.1)
+	rotation = angleLerp(startDir,dir,delta*0.75)
 	pass
 
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://waterShader.tscn" type="PackedScene" id=1]
-[ext_resource path="res://CloudParticles.tscn" type="PackedScene" id=2]
-[ext_resource path="res://lifebelt_64x64.png" type="Texture" id=3]
+[ext_resource path="res://lifebelt_64x64.png" type="Texture" id=2]
+[ext_resource path="res://CloudParticles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Shader" id=1]
 
@@ -64,58 +64,7 @@ shader = SubResource( 1 )
 shader_param/pos = null
 _sections_unfolded = [ "shader" ]
 
-[sub_resource type="Gradient" id=3]
-
-offsets = PoolRealArray( 0, 0.260108, 0.719677, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=4]
-
-flags = 4
-gradient = SubResource( 3 )
-width = 2048
-
-[sub_resource type="ParticlesMaterial" id=5]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 2
-emission_box_extents = Vector3( 1000, 1000, 1 )
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 45.0
-flatness = 1.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 1.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 1.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 1.0
-damping_random = 1.0
-angle = 0.0
-angle_random = 0.0
-scale = 1.0
-scale_random = 0.0
-color_ramp = SubResource( 4 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Spread" ]
-
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -155,6 +104,57 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Animation", "Damping", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Spread", "Tangential Accel", "Trail" ]
 
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 0.260108, 0.719677, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+
+flags = 4
+gradient = SubResource( 4 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 1000, 1000, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 1.0
+damping_random = 1.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 5 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Spread" ]
+
 [node name="MenuBackground" type="Control" index="0"]
 
 anchor_left = 0.0
@@ -174,12 +174,7 @@ material = SubResource( 2 )
 position = Vector2( 1442, 636 )
 scale = Vector2( 45.2192, 33.3792 )
 
-[node name="CloudParticles" parent="." index="1" instance=ExtResource( 2 )]
-
-position = Vector2( 512, 346 )
-process_material = SubResource( 5 )
-
-[node name="lifeBelts" type="Particles2D" parent="." index="2"]
+[node name="lifeBelts" type="Particles2D" parent="." index="1"]
 
 position = Vector2( -120, 350 )
 rotation = -0.127096
@@ -196,11 +191,16 @@ fract_delta = true
 visibility_rect = Rect2( 0, -500, 2000, 1000 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
-texture = ExtResource( 3 )
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="CloudParticles" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 512, 346 )
+process_material = SubResource( 6 )
 
 

@@ -632,13 +632,19 @@ shape = SubResource( 14 )
 
 [node name="eisberge" type="Node2D" parent="." index="7"]
 
-[node name="Node2D" parent="." index="8" instance=ExtResource( 10 )]
+[node name="clouds" type="Node2D" parent="." index="8"]
 
 position = Vector2( 288.964, -518.439 )
 
-[node name="Node2D2" parent="." index="9" instance=ExtResource( 10 )]
+[node name="Node2D" parent="clouds" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 759.557, -384.501 )
+position = Vector2( -95.6388, 175.857 )
+scale = Vector2( 0.613124, 0.613124 )
+
+[node name="Node2D2" parent="clouds" index="1" instance=ExtResource( 10 )]
+
+position = Vector2( 193.957, 523.372 )
+scale = Vector2( 0.726247, 0.726247 )
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]
 

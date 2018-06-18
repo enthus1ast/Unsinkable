@@ -11,6 +11,7 @@ onready var schaufel = $CanvasLayer/Control/ProgressBar/schaufel
 onready var kohleAufSchaufel = $CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel
 onready var foam = get_node("RigidBody2D/foam")
 onready var eisberge = get_node("eisberge")
+onready var clouds = get_node("clouds")
 var keys = {}
 
 
@@ -20,27 +21,52 @@ func clearKeys():
 func chooseEisberg():
 	var dice = randi() % 2
 	if dice == 0: return load("res://eisberg.tscn").instance()
-	elif dice == 1: return load("res://eisberg2.tscn").instance()
+#	elif dice == 1: return load("res://eisberg2.tscn").instance()
 	elif dice == 2: return load("res://eisberg3.tscn").instance()
+	else:return load("res://eisberg.tscn").instance()
 
 func spawnEisbergs():
 	# 0 , (-8320)
 	# 0, 1280
 	for yidx in range(83):
-		for xidx in range(randi() % 15 + 1):
-			var eisberg = load("res://eisberg.tscn").instance()
+		for xidx in range(randi() % 12 + 1):
+			var eisberg = chooseEisberg()  #load("res://eisberg.tscn").instance()
 			var rr = randi() % 2 + 1
 			eisberg.scale = Vector2( rr, rr)
 			eisberge.add_child(eisberg)
 			eisberg.position = Vector2( randi() % 1280, - (yidx * 100) ) #, randi() % 8320 ) 
 			eisberg.rotation_degrees = randi() % 360
 #			print(eisberg.position)
+
+func chooseCloud():
+#	var dice = randi() % 2
+#	if dice == 0: return load("res://eisberg.tscn").instance()
+#	elif dice == 1: return load("res://eisberg2.tscn").instance()
+#	elif dice == 2: return load("res://eisberg3.tscn").instance()
+	return load("res://Wolke.tscn").instance()
+	
+func spawnClouds():
+	# 0 , (-8320)
+	# 0, 1280
+	for yidx in range(83):
+		for xidx in range(randi() % 3 + 1):
+			var cloud = chooseCloud()# load("res://eisberg.tscn").instance()
+			var rr = randi() % 2 + 0
+			cloud.scale = Vector2( rr, rr)
+			clouds.add_child(cloud)
+#			cloud.
+			cloud.position = Vector2( randi() % 1280, - (yidx * 250) ) #, randi() % 8320 ) 
+#			cloud.rotation_degrees = randi() % 360
+#			print(cloud.position)
+
+
 	
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	clearKeys()
 	spawnEisbergs()
+	spawnClouds()
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.

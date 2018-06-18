@@ -93,6 +93,8 @@ func _process(delta):
 #	kohleAufSchaufel
 	$RigidBody2D/Particles2D.emitting = power / 4
 	
+	$CanvasLayer/ProcessSlider.value = int(clamp(abs(shipBody.position.y), 0, 8320))
+	
 func _physics_process(delta):
 	if $CanvasLayer/Lives.value <= 0:
 		power = 0
@@ -164,7 +166,7 @@ func _on_RigidBody2D_body_entered(body):
 		if $CanvasLayer/Lives.value <= 0:
 			animationPlayer.play("kill")
 			yield(animationPlayer, "animation_finished")
-			yield(get_tree().create_timer(3, true), "timeout")
+#			yield(get_tree().create_timer(3, true), "timeout")
 			get_tree().change_scene("res://Winner.tscn")
 	
 	if body.is_in_group("winner"):

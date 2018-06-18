@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://white.png" type="Texture" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://schaufel.png" type="Texture" id=6]
 [ext_resource path="res://havestone.png" type="Texture" id=7]
 [ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=8]
-[ext_resource path="res://titanic_h1.png" type="Texture" id=9]
-[ext_resource path="res://titanic_h2.png" type="Texture" id=10]
-[ext_resource path="res://titanic.png" type="Texture" id=11]
-[ext_resource path="res://smoke.png" type="Texture" id=12]
-[ext_resource path="res://Wolke.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ProcessSlider.tscn" type="PackedScene" id=9]
+[ext_resource path="res://titanic_h1.png" type="Texture" id=10]
+[ext_resource path="res://titanic_h2.png" type="Texture" id=11]
+[ext_resource path="res://titanic.png" type="Texture" id=12]
+[ext_resource path="res://smoke.png" type="Texture" id=13]
+[ext_resource path="res://Wolke.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Shader" id=1]
 
@@ -396,7 +397,7 @@ tracks/9/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 32.6964, 31.2136 )
 
-[node name="World" type="Control"]
+[node name="World" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -409,6 +410,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="waterShader" type="Sprite" parent="." index="0"]
 
@@ -499,7 +504,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -508,7 +512,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -531,9 +534,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1.0
+margin_left = 22.0
 margin_top = 1.0
-margin_right = 41.0
+margin_right = 62.0
 margin_bottom = 15.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -665,10 +668,16 @@ percent_visible = true
 
 [node name="ButtonFullscreen" parent="CanvasLayer" index="2" instance=ExtResource( 8 )]
 
+[node name="ProcessSlider" parent="CanvasLayer" index="3" instance=ExtResource( 9 )]
+
+anchor_right = 0.0
+margin_right = 16.0
+
 [node name="RigidBody2D" type="RigidBody2D" parent="." index="5" groups=[
 "ship",
 ]]
 
+editor/display_folded = true
 position = Vector2( 640.481, 240.21 )
 input_pickable = false
 collision_layer = 1
@@ -735,7 +744,7 @@ texture = ExtResource( 3 )
 visible = false
 position = Vector2( -0.319092, -1.1861 )
 scale = Vector2( 0.0281108, 0.0281108 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="titanic_h_2" type="Sprite" parent="RigidBody2D" index="3"]
@@ -743,14 +752,14 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 visible = false
 position = Vector2( -0.319092, -1.1861 )
 scale = Vector2( 0.0281108, 0.0281108 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
 [node name="titanic" type="Sprite" parent="RigidBody2D" index="4"]
 
 position = Vector2( -0.319092, -1.1861 )
 scale = Vector2( 0.0281108, 0.0281108 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="5"]
@@ -769,7 +778,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -800,7 +809,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 15 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -857,11 +866,11 @@ shape = SubResource( 17 )
 
 [node name="eisberge" type="Node2D" parent="." index="8"]
 
-[node name="Node2D" parent="." index="9" instance=ExtResource( 13 )]
+[node name="Node2D" parent="." index="9" instance=ExtResource( 14 )]
 
 position = Vector2( 288.964, -518.439 )
 
-[node name="Node2D2" parent="." index="10" instance=ExtResource( 13 )]
+[node name="Node2D2" parent="." index="10" instance=ExtResource( 14 )]
 
 position = Vector2( 759.557, -384.501 )
 

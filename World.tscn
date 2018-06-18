@@ -454,6 +454,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -629,6 +630,7 @@ margin_right = 26.0
 "ship",
 ]]
 
+editor/display_folded = true
 position = Vector2( 640.481, 240.21 )
 input_pickable = false
 collision_layer = 1

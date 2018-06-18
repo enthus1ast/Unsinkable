@@ -42,15 +42,11 @@ func spawnEisbergs():
 			eisberge.add_child(eisberg)
 			eisberg.position = Vector2( randi() % 1280, - (yidx * 100) ) #, randi() % 8320 ) 
 			eisberg.rotation_degrees = randi() % 360
-#			print(eisberg.position)
 	
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	randomize()
 	clearKeys()
 	spawnEisbergs()
-#	spawnClouds()
 	if config.cheat:
 		shipBody.position.y = -8500
 	if config.lowQuality:

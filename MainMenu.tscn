@@ -50,6 +50,11 @@ script = ExtResource( 1 )
 
 [node name="MenuBackgroundAnimation" parent="." index="0" instance=ExtResource( 2 )]
 
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 3.0
+margin_bottom = 2.0
+
 [node name="ButtonCheat" type="Button" parent="." index="1"]
 
 modulate = Color( 1, 1, 1, 0 )
@@ -76,6 +81,8 @@ align = 1
 _sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="CheckBoxRsi" parent="." index="2" instance=ExtResource( 3 )]
+
+editor/display_folded = true
 
 [node name="CheckBoxDisableShader" type="CheckBox" parent="CheckBoxRsi" index="1"]
 

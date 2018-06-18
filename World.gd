@@ -12,6 +12,7 @@ onready var kohleAufSchaufel = $CanvasLayer/Control/ProgressBar/schaufel/kohleAu
 onready var foam = get_node("RigidBody2D/foam")
 onready var eisberge = get_node("eisberge")
 onready var camera2D = get_node("RigidBody2D/Camera2D")
+onready var animationPlayer = get_node("RigidBody2D/AnimationPlayer")
 var keys = {}
 
 
@@ -130,10 +131,13 @@ func _on_RigidBody2D_body_entered(body):
 		print("collided with eisberg: ", oldVelocity)
 		if abs(oldVelocity.x) > 50  or abs(oldVelocity.y) > 50:
 			$CanvasLayer/Lives.value = 0
+			animationPlayer.play("kill")
 		elif abs(oldVelocity.x) > 10  or abs(oldVelocity.y) > 10:
 			$CanvasLayer/Lives.value -= 1
 		
 		if $CanvasLayer/Lives.value <= 0:
+			animationPlayer.play("kill")
+			yield(animationPlayer, "animation_finished")
 			yield(get_tree().create_timer(3, true), "timeout")
 			get_tree().change_scene("res://Winner.tscn")
 	

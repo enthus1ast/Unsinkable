@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://white.png" type="Texture" id=2]
@@ -8,9 +8,11 @@
 [ext_resource path="res://schaufel.png" type="Texture" id=6]
 [ext_resource path="res://havestone.png" type="Texture" id=7]
 [ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=8]
-[ext_resource path="res://titanic.png" type="Texture" id=9]
-[ext_resource path="res://smoke.png" type="Texture" id=10]
-[ext_resource path="res://Wolke.tscn" type="PackedScene" id=11]
+[ext_resource path="res://titanic_h1.png" type="Texture" id=9]
+[ext_resource path="res://titanic_h2.png" type="Texture" id=10]
+[ext_resource path="res://titanic.png" type="Texture" id=11]
+[ext_resource path="res://smoke.png" type="Texture" id=12]
+[ext_resource path="res://Wolke.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Shader" id=15]
 
@@ -261,6 +263,133 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="Animation" id=17]
+
+resource_name = "kill"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("titanic:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("titanic_h_2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("titanic_h_1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("titanic_h_1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 3.36359, 1 ),
+"update": 0,
+"values": [ Vector2( -0.319092, -1.1861 ), Vector2( 1.4884, 15.985 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("titanic_h_1:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2.2974, 1 ),
+"update": 0,
+"values": [ 0.0, -18.8173 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("titanic_h_2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 2.92817 ),
+"update": 0,
+"values": [ Vector2( -0.319092, -1.1861 ), Vector2( 2.39215, -14.5163 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("titanic_h_2:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 7.86749 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("titanic_h_2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2.4, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("titanic_h_2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0281108, 0.0281108 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("titanic_h_1:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 2.4, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=14]
 
@@ -518,7 +647,6 @@ percent_visible = true
 [node name="RigidBody2D" type="RigidBody2D" parent="." index="5" groups=[
 "ship",
 ]]
-editor/display_folded = true
 position = Vector2( 640.481, 240.21 )
 input_pickable = false
 collision_layer = 1
@@ -577,12 +705,28 @@ position = Vector2( 3.11902, 29.6234 )
 scale = Vector2( 1.71342, 0.0982738 )
 texture = ExtResource( 3 )
 
-[node name="titanic" type="Sprite" parent="RigidBody2D" index="2"]
+[node name="titanic_h_1" type="Sprite" parent="RigidBody2D" index="2"]
+visible = false
 position = Vector2( -0.319092, -1.1861 )
 scale = Vector2( 0.0281108, 0.0281108 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="3"]
+[node name="titanic_h_2" type="Sprite" parent="RigidBody2D" index="3"]
+visible = false
+position = Vector2( -0.319092, -1.1861 )
+scale = Vector2( 0.0281108, 0.0281108 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="titanic" type="Sprite" parent="RigidBody2D" index="4"]
+position = Vector2( -0.319092, -1.1861 )
+scale = Vector2( 0.0281108, 0.0281108 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="5"]
+visible = false
 emitting = true
 amount = 20
 lifetime = 15.0
@@ -597,18 +741,18 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "process_material" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="6"]
 position = Vector2( -0.17439, 0.97531 )
 scale = Vector2( 1.22336, 1.10896 )
 shape = SubResource( 7 )
 
-[node name="foam" type="Particles2D" parent="RigidBody2D" index="5"]
+[node name="foam" type="Particles2D" parent="RigidBody2D" index="7"]
 show_behind_parent = true
 material = SubResource( 8 )
 scale = Vector2( 0.5, 0.5 )
@@ -626,17 +770,26 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 13 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
-[node name="PositionLeft" type="Position2D" parent="RigidBody2D" index="6"]
+[node name="PositionLeft" type="Position2D" parent="RigidBody2D" index="8"]
 position = Vector2( -18.2939, 28.8268 )
 
-[node name="PositionRight" type="Position2D" parent="RigidBody2D" index="7"]
+[node name="PositionRight" type="Position2D" parent="RigidBody2D" index="9"]
 position = Vector2( 17.5548, 28.8268 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D" index="10"]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/kill = SubResource( 17 )
+blend_times = [  ]
 
 [node name="icon" type="Sprite" parent="." index="6"]
 position = Vector2( 543.836, -18889.2 )
@@ -667,10 +820,10 @@ shape = SubResource( 14 )
 
 [node name="eisberge" type="Node2D" parent="." index="8"]
 
-[node name="Node2D" parent="." index="9" instance=ExtResource( 11 )]
+[node name="Node2D" parent="." index="9" instance=ExtResource( 13 )]
 position = Vector2( 288.964, -518.439 )
 
-[node name="Node2D2" parent="." index="10" instance=ExtResource( 11 )]
+[node name="Node2D2" parent="." index="10" instance=ExtResource( 13 )]
 position = Vector2( 759.557, -384.501 )
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]

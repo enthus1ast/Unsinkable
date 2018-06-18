@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
 [ext_resource path="res://MenuBackgroundAnimation.tscn" type="PackedScene" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://clouds/cloud3.png" type="Texture" id=5]
 [ext_resource path="res://Antique.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://steeringWheel.png" type="Texture" id=7]
+[ext_resource path="res://steeringWheel.gd" type="Script" id=8]
+[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=9]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 
 size = 20
 use_mipmaps = false
@@ -16,7 +18,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 200
 use_mipmaps = false
@@ -24,32 +26,28 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
-
-size = 30
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Font", "Settings" ]
-
 [sub_resource type="DynamicFont" id=3]
 
-size = 70
+size = 22
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Control" type="Control"]
+[sub_resource type="DynamicFont" id=4]
+
+size = 60
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -2.0
-margin_top = -6.0
-margin_right = -2.0
-margin_bottom = -6.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -95,7 +93,7 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 margin_top = -54.0
 margin_right = 141.0
 margin_bottom = -25.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -103,8 +101,8 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 [node name="cloud3" type="Sprite" parent="CheckBoxRsi" index="0"]
 
 show_behind_parent = true
-position = Vector2( 62, 0 )
-scale = Vector2( 2.03696, 2.03696 )
+position = Vector2( 96.9374, -46 )
+scale = Vector2( 2.37446, 2.54902 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -124,7 +122,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -173,7 +171,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.537255, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "UNSINKABLE"
@@ -183,24 +181,32 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_colors", "custom_fonts/font" ]
 
-[node name="Label" type="RichTextLabel" parent="LabelUnsinkable" index="0"]
+[node name="steeringWheel" type="Sprite" parent="LabelUnsinkable" index="0"]
+
+position = Vector2( 512, 476 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Label" type="RichTextLabel" parent="LabelUnsinkable" index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -170.0
-margin_top = 75.5
-margin_right = 240.0
-margin_bottom = 295.5
+margin_left = -502.0
+margin_top = 309.5
+margin_right = -144.0
+margin_bottom = 433.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 2 )
-custom_colors/default_color = Color( 1, 0.658364, 0.261719, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.917969, 0.493183, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "Controls:
 
@@ -220,19 +226,19 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "Bb Code", "Custom Colors", "Custom Fonts", "Visibility", "custom_colors", "custom_fonts", "custom_fonts/normal_font" ]
+_sections_unfolded = [ "Bb Code", "Custom Colors", "Custom Fonts", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_fonts/normal_font", "custom_styles" ]
 
-[node name="btnPlay" type="Button" parent="LabelUnsinkable" index="1"]
+[node name="btnPlay" type="Button" parent="LabelUnsinkable" index="2"]
 
 self_modulate = Color( 1, 1, 1, 0.856353 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -170.0
-margin_top = 397.0
-margin_right = 182.0
-margin_bottom = 273.0
+margin_left = -332.0
+margin_top = 250.0
+margin_right = -192.0
+margin_bottom = 116.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_next = NodePath("../btnQuit")
@@ -241,7 +247,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -249,19 +255,19 @@ group = null
 text = "PLAY"
 flat = false
 align = 1
-_sections_unfolded = [ "Custom Fonts", "Focus", "Visibility", "custom_fonts/font" ]
+_sections_unfolded = [ "Custom Fonts", "Focus", "Visibility", "custom_fonts", "custom_fonts/font" ]
 
-[node name="btnQuit" type="Button" parent="LabelUnsinkable" index="2"]
+[node name="btnQuit" type="Button" parent="LabelUnsinkable" index="3"]
 
 self_modulate = Color( 1, 1, 1, 0.856353 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -170.0
-margin_top = 496.0
-margin_right = 182.0
-margin_bottom = 372.0
+margin_left = 318.0
+margin_top = 470.0
+margin_right = 466.0
+margin_bottom = 337.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_next = NodePath("../btnPlay")
@@ -270,7 +276,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -278,9 +284,9 @@ group = null
 text = "QUIT"
 flat = false
 align = 1
-_sections_unfolded = [ "Custom Fonts", "Focus", "custom_fonts/font" ]
+_sections_unfolded = [ "Custom Fonts", "Focus", "custom_fonts", "custom_fonts/font" ]
 
-[node name="ButtonFullscreen" parent="." index="5" instance=ExtResource( 7 )]
+[node name="ButtonFullscreen" parent="." index="5" instance=ExtResource( 9 )]
 
 margin_left = -72.0
 margin_top = 6.0

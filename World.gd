@@ -95,7 +95,7 @@ func _physics_process(delta):
 		var imp = Vector2((power / 1.5 ) * delta, 0)
 		shipBody.apply_impulse(steerPositionRight.position, imp)
 	oldVelocity = shipBody.linear_velocity
-	if shipBody.linear_velocity.length()>4:
+	if shipBody.linear_velocity.length()>20:
 		foam.emitting = true
 	else:
 		foam.emitting = false

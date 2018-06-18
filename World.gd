@@ -10,6 +10,7 @@ var oldVelocity = Vector2(0,0)
 onready var schaufel = $CanvasLayer/Control/ProgressBar/schaufel
 onready var kohleAufSchaufel = $CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel
 onready var foam = get_node("RigidBody2D/foam")
+onready var eisberge = get_node("eisberge")
 var keys = {}
 
 
@@ -30,7 +31,7 @@ func spawnEisbergs():
 			var eisberg = load("res://eisberg.tscn").instance()
 			var rr = randi() % 2 + 1
 			eisberg.scale = Vector2( rr, rr)
-			add_child(eisberg)
+			eisberge.add_child(eisberg)
 			eisberg.position = Vector2( randi() % 1280, - (yidx * 100) ) #, randi() % 8320 ) 
 			eisberg.rotation_degrees = randi() % 360
 #			print(eisberg.position)

@@ -1,40 +1,36 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CheckBoxRsi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 200
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
 size = 20
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
 size = 70
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Control" type="Control" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -51,13 +47,16 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="CheckBox" type="CheckBox" parent="." index="0"]
+[node name="ButtonCheat" type="Button" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
-anchor_top = 1.0
+anchor_top = 0.0
 anchor_right = 0.0
-anchor_bottom = 1.0
-margin_top = -24.0
-margin_right = 108.0
+anchor_bottom = 0.0
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -69,34 +68,14 @@ toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "RSI Syndrom"
 flat = false
-align = 0
-_sections_unfolded = [ "Focus" ]
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="LabelRsi" type="Label" parent="CheckBox" index="0"]
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 112.0
-margin_top = 5.0
-margin_right = 246.0
-margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "(press \"up\" to auto shovel!)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+[node name="CheckBoxRsi" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="code0" type="Label" parent="." index="1"]
+[node name="code0" type="Label" parent="." index="2"]
+
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -118,7 +97,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="LabelUnsinkable" type="Label" parent="." index="2"]
+[node name="LabelUnsinkable" type="Label" parent="." index="3"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -141,6 +121,7 @@ max_lines_visible = -1
 _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_fonts/font" ]
 
 [node name="Label" type="RichTextLabel" parent="LabelUnsinkable" index="0"]
+
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -178,6 +159,7 @@ override_selected_font_color = false
 _sections_unfolded = [ "Bb Code", "Custom Colors", "Custom Fonts", "Visibility", "custom_fonts", "custom_fonts/normal_font" ]
 
 [node name="btnPlay" type="Button" parent="LabelUnsinkable" index="1"]
+
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -204,6 +186,7 @@ align = 1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
 [node name="btnQuit" type="Button" parent="LabelUnsinkable" index="2"]
+
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -229,12 +212,19 @@ flat = false
 align = 1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
-[node name="ButtonFullscreen" parent="." index="3" instance=ExtResource( 3 )]
+[node name="ButtonFullscreen" parent="." index="4" instance=ExtResource( 4 )]
+
 margin_left = -72.0
 margin_top = 6.0
 margin_right = 3.0
 margin_bottom = 26.0
 
-[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="ButtonCheat" to="." method="_on_ButtonCheat_toggled"]
+
+[connection signal="toggled" from="CheckBoxRsi" to="." method="_on_CheckBoxRsi_toggled"]
+
 [connection signal="pressed" from="LabelUnsinkable/btnPlay" to="." method="_on_btnPlayAgain_pressed"]
+
 [connection signal="pressed" from="LabelUnsinkable/btnQuit" to="." method="_on_btnQuit_pressed"]
+
+

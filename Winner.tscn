@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://CheckBoxRsi.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -147,8 +148,12 @@ flat = false
 align = 1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
+[node name="CheckBoxRsi" parent="." index="2" instance=ExtResource( 3 )]
+
 [connection signal="pressed" from="Label/btnPlayAgain" to="." method="_on_btnPlayAgain_pressed"]
 
 [connection signal="pressed" from="Label/btnQuit" to="." method="_on_btnQuit_pressed"]
+
+[connection signal="toggled" from="CheckBoxRsi" to="." method="_on_CheckBoxRsi_toggled"]
 
 

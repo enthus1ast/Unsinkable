@@ -5,10 +5,12 @@ extends Control
 # var b = "textvar"
 
 onready var labelRsi = find_node("LabelRsi")
+onready var checkBoxRsi = find_node("CheckBoxRsi")
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here.
+	checkBoxRsi.pressed = config.rsi # todo is not found at runtime why?
 	pass
 
 #func _process(delta):
@@ -27,9 +29,15 @@ func _on_btnQuit_pressed():
 	get_tree().quit()
 
 
-func _on_CheckBox_toggled(button_pressed):
+#func _on_CheckBox_toggled(button_pressed):
+#	pass # replace with function body
+
+func _on_ButtonCheat_toggled(button_pressed):
+	pass # replace with function body
+	print("cheat:", button_pressed)
+	config.cheat = button_pressed
+
+func _on_CheckBoxRsi_toggled(button_pressed):
 	pass # replace with function body
 	config.rsi = button_pressed
 	labelRsi.visible = button_pressed
-	
-	

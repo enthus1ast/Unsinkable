@@ -763,7 +763,7 @@ scale = Vector2( 0.0281108, 0.0281108 )
 texture = ExtResource( 12 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Particles2D" type="Particles2D" parent="RigidBody2D" index="5"]
+[node name="ParticlesSmoke" type="Particles2D" parent="RigidBody2D" index="5"]
 
 emitting = true
 amount = 20
@@ -847,6 +847,7 @@ texture = ExtResource( 3 )
 ]]
 
 editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.342549 )
 position = Vector2( 607.518, -8321.56 )
 scale = Vector2( 21.4051, 3.38201 )
 input_pickable = true
@@ -856,6 +857,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Visibility" ]
 
 [node name="icon2" type="Sprite" parent="winner" index="0"]
 

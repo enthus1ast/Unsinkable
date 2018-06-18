@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://eisberg1.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://eisberg1.png" type="Texture" id=2]
 
 [node name="eisberg" type="StaticBody2D" index="0" groups=[
 "eisberg",
@@ -21,18 +22,15 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -9.43883, -27.2764, -13.1105, -21.1764, -16.9319, -21.0568, -20.0791, -20.3391, -24.5749, -15.196, -26.2984, -10.6509, -26.8229, -5.38809, -19.8543, 0.951153, -18.5804, 5.61588, -22.0273, 11.4767, -29.4455, 14.1081, -30.0449, 18.414, -28.6212, 22.1218, -24.2752, 24.2748, -18.5804, 23.3179, -13.635, 20.4473, -11.6118, 20.4473, -11.6868, 24.514, -7.79034, 29.4179, -3.81898, 31.3317, 1.12648, 31.5709, 5.39757, 30.1356, 5.62236, 28.4611, 10.9425, 26.7866, 15.1386, 22.9591, 11.5419, 18.8924, 6.52155, 13.2708, 12.4411, 3.46293, 17.1618, 5.8551, 20.0092, 4.30019, 24.6549, 6.21392, 32.8974, 4.53941, 27.6521, -4.67044, 25.3293, -12.445, 18.5855, -15.4352, 10.7177, -18.1862, 6.29675, -20.9372, 3.74907, -26.1999, 2.62511, -31.4627, -0.372147, -32.5392, -2.54515, -30.9843, -6.66635, -28.5921 )
 
-[node name="eisberg_" type="Sprite" parent="." index="1"]
+[node name="icon" type="Sprite" parent="." index="1"]
 
-modulate = Color( 1, 1, 1, 0.287294 )
-position = Vector2( 1.49474, 0.293324 )
-scale = Vector2( 0.341664, 0.341664 )
+visible = false
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Visibility" ]
 
 [node name="eisberg1" type="Sprite" parent="." index="2"]
 
 position = Vector2( 1.22501, -0.147228 )
 scale = Vector2( 0.288973, 0.288973 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 

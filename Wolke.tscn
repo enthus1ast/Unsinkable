@@ -28,10 +28,11 @@ tracks/0/keys = {
 [node name="Node2D" type="Node2D" index="0"]
 
 position = Vector2( -218.45, -136.412 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="cloud4_shadow" type="Sprite" parent="." index="0"]
 
-modulate = Color( 1, 1, 1, 0.812157 )
+modulate = Color( 1, 1, 1, 0.591176 )
 position = Vector2( 216.434, 185.161 )
 scale = Vector2( 2.11708, 1.8837 )
 texture = ExtResource( 1 )
@@ -41,6 +42,7 @@ _sections_unfolded = [ "Offset", "Visibility" ]
 
 build_mode = 0
 polygon = PoolVector2Array( -11.548, -74.6872, -28.6703, -68.1038, -48.0456, -43.796, -60.662, -45.8216, -79.1361, -16.4496, -37.6821, 12.9224, 64.1506, 17.9866, 70.9094, -15.9432, 46.1272, -45.3152, 20.8943, -74.1808 )
+disabled = true
 
 [node name="cloudShadow" type="Sprite" parent="." index="1"]
 

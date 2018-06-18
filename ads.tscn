@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ads.gd" type="Script" id=1]
-[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://ads/ChromeTrip.png" type="Texture" id=3]
+[ext_resource path="res://MenuBackgroundAnimation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ads/ChromeTrip.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Ads" type="Control" index="0"]
@@ -28,7 +29,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="Label2" type="Label" parent="." index="0"]
+[node name="MenuBackground" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Label2" type="Label" parent="." index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.0
@@ -49,16 +52,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="." index="1"]
+[node name="Label3" type="Label" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -110.0
-margin_top = -178.0
+margin_top = -171.0
 margin_right = 109.0
-margin_bottom = -137.0
+margin_bottom = -130.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -87,7 +90,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 stretch_mode = 0
 
 [node name="ButtonVisitChromeTrip" type="Button" parent="Label3/ChromeTrip" index="0"]
@@ -136,15 +139,17 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ButtonMainMenu" type="Button" parent="." index="2"]
+[node name="ButtonMainMenu" type="Button" parent="." index="3"]
 
+self_modulate = Color( 1, 1, 1, 0.854902 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -71.5
+margin_left = -72.0
 margin_top = -91.0
-margin_right = 71.5
+margin_right = 71.0
+margin_bottom = -45.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -159,6 +164,7 @@ group = null
 text = "OK"
 flat = false
 align = 1
+_sections_unfolded = [ "Visibility" ]
 
 [connection signal="pressed" from="Label3/ChromeTrip/ButtonVisitChromeTrip" to="." method="_on_ButtonVisitChromeTrip_pressed"]
 

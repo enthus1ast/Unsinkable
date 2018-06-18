@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://waterShader.tscn" type="PackedScene" id=1]
+[ext_resource path="res://white.png" type="Texture" id=2]
+[ext_resource path="res://CloudParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://clouds/cloud4_shadow.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=4]
+
+code = "shader_type canvas_item;
+
+uniform vec2 pos = vec2(100.0,1.0);
+
+vec2 hash2(vec2 p ) {
+	return fract(sin(vec2(dot(p, vec2(123.4, 748.6)), dot(p, vec2(547.3, 659.3))))*5232.85324);   
+}
+float hash(vec2 p) {
+	return fract(sin(dot(p, vec2(43.232, 75.876)))*4526.3257);   
+}
+
+float voronoi(vec2 p,float time) {
+	vec2 n = floor(p);
+	vec2 f = fract(p);
+	float md = 5.0;
+	vec2 m = vec2(0.0,0.0);
+	for (float i = -1.0;i<=1.0;i++) {
+		for (float j = -1.0;j<=1.0;j++) {
+		vec2 g = vec2(i, j);
+			vec2 o = hash2(n+g);
+			o = 0.5+0.5*sin(time+5.038*o);
+			vec2 r = g + o - f;
+			float d = dot(r, r);
+			if (d<md) {
+				md = d;
+				m = n+g+o;
+			}
+		}
+	}
+	return md;
+}
+
+float ov(vec2 p,float time) {
+	float v = 0.0;
+	float a = 0.4;
+	for (float i = 0.0;i<3.0;i++) {
+		v+= voronoi(p,time)*a;
+		p*=2.0;
+		a*=0.5;
+	}
+	return v;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	uv+=pos/10000.0;
+	vec4 a = vec4(0.2,0.1,1.0,1.0);
+	vec4 b = vec4(0.8, 0.8, .8, 0.8);
+	COLOR = vec4(mix(a, b, smoothstep(0.15, 1.4, ov(uv*400.0,TIME))));
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+
+render_priority = 0
+shader = SubResource( 4 )
+shader_param/pos = null
+_sections_unfolded = [ "shader" ]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 0.260108, 0.719677, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 1000, 1000, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 1.0
+damping_random = 1.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Spread" ]
+
+[node name="MenuBackground" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="waterShader" type="Sprite" parent="." index="0" instance=ExtResource( 1 )]
+
+show_behind_parent = true
+material = SubResource( 5 )
+position = Vector2( 1442, 636 )
+scale = Vector2( 45.2192, 33.3792 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index", "material" ]
+
+[node name="CloudParticles" type="Particles2D" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 512, 346 )
+emitting = true
+amount = 20
+lifetime = 50.0
+one_shot = false
+preprocess = 100.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 1 )
+texture = ExtResource( 4 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+

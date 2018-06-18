@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
-[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://CheckBoxRsi.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MenuBackgroundAnimation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://CheckBoxRsi.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 200
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -17,7 +18,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 150
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -25,7 +26,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 70
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Control" type="Control" index="0"]
@@ -46,7 +47,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="LabelUnsinkable" type="Label" parent="." index="0"]
+[node name="MenuBackground" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="LabelUnsinkable" type="Label" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -69,7 +72,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_fonts", "custom_fonts/font" ]
 
-[node name="Label" type="Label" parent="." index="1"]
+[node name="Label" type="Label" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -96,6 +99,7 @@ _sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_fo
 
 [node name="btnPlayAgain" type="Button" parent="Label" index="0"]
 
+self_modulate = Color( 1, 1, 1, 0.854902 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -123,6 +127,7 @@ _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
 [node name="btnQuit" type="Button" parent="Label" index="1"]
 
+self_modulate = Color( 1, 1, 1, 0.854902 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -148,7 +153,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
-[node name="CheckBoxRsi" parent="." index="2" instance=ExtResource( 3 )]
+[node name="CheckBoxRsi" parent="." index="3" instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="Label/btnPlayAgain" to="." method="_on_btnPlayAgain_pressed"]
 

@@ -53,6 +53,8 @@ func _ready():
 #	spawnClouds()
 	if config.cheat:
 		shipBody.position.y = -8500
+	if config.lowQuality:
+		$waterShader.visible = false
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.

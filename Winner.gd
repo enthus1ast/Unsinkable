@@ -41,3 +41,8 @@ func _on_CheckBoxRsi_toggled(button_pressed):
 	pass # replace with function body
 	config.rsi = button_pressed
 	labelRsi.visible = button_pressed
+
+
+func _on_CheckBoxDisableShader_toggled(button_pressed):
+	pass # replace with function body
+	config.lowQuality = button_pressed

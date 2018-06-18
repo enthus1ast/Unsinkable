@@ -1,17 +1,14 @@
-extends Node
+extends Control
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
-var rsi  = false # if you have RIS issues... (poor you) 
-var cheat = false
-var lowQuality = false
-
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
+	
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

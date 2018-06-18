@@ -445,7 +445,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -519,9 +518,27 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Percent", "Rect", "Visibility", "custom_styles" ]
 
-[node name="ofen" type="Sprite" parent="CanvasLayer/Control/ProgressBar" index="0"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/ProgressBar" index="0"]
 
 show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = -9.0
+margin_right = 56.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="ofen" type="Sprite" parent="CanvasLayer/Control/ProgressBar" index="1"]
+
 position = Vector2( 78.9208, 66.2018 )
 rotation = 1.58269
 scale = Vector2( 0.317241, 0.317241 )
@@ -533,7 +550,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 position = Vector2( -471.67, 273.659 )
 scale = Vector2( 5.42992, 3.55683 )
 
-[node name="schaufel" type="Sprite" parent="CanvasLayer/Control/ProgressBar" index="1"]
+[node name="schaufel" type="Sprite" parent="CanvasLayer/Control/ProgressBar" index="2"]
 
 position = Vector2( 50.3944, -40.0942 )
 rotation = 1.10324

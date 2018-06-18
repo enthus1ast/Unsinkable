@@ -52,16 +52,33 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="." index="2"]
+[node name="Panel" type="Panel" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -110.0
-margin_top = -171.0
-margin_right = 109.0
-margin_bottom = -130.0
+margin_left = -188.0
+margin_top = -238.0
+margin_right = 188.0
+margin_bottom = 238.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label3" type="Label" parent="Panel" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.0
+margin_top = -203.0
+margin_right = 105.0
+margin_bottom = -162.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -74,7 +91,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ChromeTrip" type="TextureRect" parent="Label3" index="0"]
+[node name="ChromeTrip" type="TextureRect" parent="Panel/Label3" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -93,9 +110,9 @@ size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
 
-[node name="ButtonVisitChromeTrip" type="Button" parent="Label3/ChromeTrip" index="0"]
+[node name="ButtonVisitChromeTrip" type="Button" parent="Panel/Label3/ChromeTrip" index="0"]
 
-modulate = Color( 1, 1, 1, 0.287294 )
+modulate = Color( 1, 1, 1, 0.414392 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -115,7 +132,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Label4" type="Label" parent="Label3" index="1"]
+[node name="Label4" type="Label" parent="Panel/Label3" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -139,17 +156,17 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ButtonMainMenu" type="Button" parent="." index="3"]
+[node name="ButtonMainMenu" type="Button" parent="Panel/Label3" index="2"]
 
 self_modulate = Color( 1, 1, 1, 0.854902 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -72.0
-margin_top = -91.0
-margin_right = 71.0
-margin_bottom = -45.0
+margin_left = -67.5
+margin_top = 320.0
+margin_right = 75.5
+margin_bottom = 366.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -161,13 +178,13 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "OK"
+text = "continue"
 flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[connection signal="pressed" from="Label3/ChromeTrip/ButtonVisitChromeTrip" to="." method="_on_ButtonVisitChromeTrip_pressed"]
+[connection signal="pressed" from="Panel/Label3/ChromeTrip/ButtonVisitChromeTrip" to="." method="_on_ButtonVisitChromeTrip_pressed"]
 
-[connection signal="pressed" from="ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
+[connection signal="pressed" from="Panel/Label3/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
 
 

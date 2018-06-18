@@ -1,17 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
 [ext_resource path="res://MenuBackgroundAnimation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CheckBoxRsi.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://clouds/cloud3.png" type="Texture" id=5]
+[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 200
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -19,7 +29,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -27,10 +37,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 70
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -82,20 +92,31 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="CheckBoxRsi" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
+margin_top = -54.0
+margin_right = 141.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 
-[node name="CheckBoxDisableShader" type="CheckBox" parent="CheckBoxRsi" index="1"]
+[node name="cloud3" type="Sprite" parent="CheckBoxRsi" index="0"]
+
+show_behind_parent = true
+position = Vector2( 62, 0 )
+scale = Vector2( 2.03696, 2.03696 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CheckBoxDisableShader" type="CheckBox" parent="CheckBoxRsi" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -20.0
-margin_right = 237.0
-margin_bottom = 4.0
+margin_top = 20.0
+margin_right = 370.0
+margin_bottom = 49.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -103,6 +124,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -110,9 +132,10 @@ toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Low quality (for slower hardware)"
+text = "Low quality "
 flat = false
 align = 0
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="code0" type="Label" parent="." index="3"]
 
@@ -212,6 +235,7 @@ margin_right = 182.0
 margin_bottom = 273.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_next = NodePath("../btnQuit")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -225,7 +249,7 @@ group = null
 text = "PLAY"
 flat = false
 align = 1
-_sections_unfolded = [ "Custom Fonts", "Visibility", "custom_fonts/font" ]
+_sections_unfolded = [ "Custom Fonts", "Focus", "Visibility", "custom_fonts/font" ]
 
 [node name="btnQuit" type="Button" parent="LabelUnsinkable" index="2"]
 
@@ -240,6 +264,7 @@ margin_right = 182.0
 margin_bottom = 372.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_next = NodePath("../btnPlay")
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -253,9 +278,9 @@ group = null
 text = "QUIT"
 flat = false
 align = 1
-_sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
+_sections_unfolded = [ "Custom Fonts", "Focus", "custom_fonts/font" ]
 
-[node name="ButtonFullscreen" parent="." index="5" instance=ExtResource( 5 )]
+[node name="ButtonFullscreen" parent="." index="5" instance=ExtResource( 7 )]
 
 margin_left = -72.0
 margin_top = 6.0

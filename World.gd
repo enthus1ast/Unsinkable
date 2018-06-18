@@ -42,11 +42,35 @@ func spawnEisbergs():
 			eisberge.add_child(eisberg)
 			eisberg.position = Vector2( randi() % 1280, - (yidx * 100) ) #, randi() % 8320 ) 
 			eisberg.rotation_degrees = randi() % 360
+#			print(eisberg.position)
+
+func spawnEisbergsBoarder():
+	for yidx in range(-10 , 83):
+			for xidx in range(randi() % 3 + 1):
+				# Left
+				var eisberg = chooseEisberg()  #load("res://eisberg.tscn").instance()
+#				var rr = randi() % 4 + 3
+				var rr = 2
+				eisberg.scale = Vector2( rr, rr)
+				eisberge.add_child(eisberg)
+				eisberg.position = Vector2( 0, - (yidx * 100) ) #, randi() % 8320 ) 
+				eisberg.rotation_degrees = randi() % 360	
+
+				# Right
+				eisberg = chooseEisberg()  #load("res://eisberg.tscn").instance()
+#				rr = randi() % 2 + 1
+				eisberg.scale = Vector2( rr, rr)
+				eisberge.add_child(eisberg)
+				eisberg.position = Vector2( 1220, - (yidx * 100) ) #, randi() % 8320 ) 
+				eisberg.rotation_degrees = randi() % 360	
+
 	
 func _ready():
 	randomize()
 	clearKeys()
 	spawnEisbergs()
+	spawnEisbergsBoarder()
+#	spawnClouds()
 	if config.cheat:
 		shipBody.position.y = -8500
 	
@@ -155,3 +179,7 @@ func _on_winner_body_entered(body):
 	if body.is_in_group("ship"):
 		$CanvasLayer/Control/time/Timer.stop()
 		get_tree().change_scene("res://ads.tscn")
+
+func _on_ButtonMainMenu_pressed():
+	pass # replace with function body
+	get_tree().change_scene("res://MainMenu.tscn")

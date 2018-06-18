@@ -383,8 +383,7 @@ __meta__ = {
 
 [node name="leftBound" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
-modulate = Color( 0, 0.164706, 0.937255, 1 )
+modulate = Color( 0, 0.164706, 0.937255, 0 )
 position = Vector2( -31.0316, -3820.27 )
 scale = Vector2( 1, 141.493 )
 texture = ExtResource( 3 )
@@ -410,7 +409,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="rightBound" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
-modulate = Color( 0, 0.164706, 0.937255, 1 )
+modulate = Color( 0, 0.164706, 0.937255, 0 )
 position = Vector2( 1219.03, -3792.8 )
 scale = Vector2( 1, 141.493 )
 texture = ExtResource( 3 )
@@ -434,7 +433,7 @@ scale = Vector2( 1.65324, 1.30312 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="rightBound2" type="Sprite" parent="." index="3"]
+[node name="downBound" type="Sprite" parent="." index="3"]
 
 editor/display_folded = true
 modulate = Color( 0, 0.14902, 0.737255, 1 )
@@ -443,7 +442,7 @@ scale = Vector2( 20.4891, 0.371336 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="rightBound2" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="downBound" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -453,7 +452,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rightBound2/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="downBound/StaticBody2D" index="0"]
 
 scale = Vector2( 1.65324, 1.30312 )
 shape = SubResource( 1 )
@@ -461,7 +460,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -644,7 +642,14 @@ percent_visible = true
 
 [node name="ButtonFullscreen" parent="CanvasLayer" index="2" instance=ExtResource( 8 )]
 
-[node name="ProcessSlider" parent="CanvasLayer" index="3" instance=ExtResource( 9 )]
+[node name="ButtonMainMenu" parent="CanvasLayer" index="3" instance=ExtResource( 8 )]
+
+margin_left = -155.0
+margin_right = -80.0
+toggle_mode = false
+text = "to menu"
+
+[node name="ProcessSlider" parent="CanvasLayer" index="4" instance=ExtResource( 9 )]
 
 anchor_right = 0.0
 margin_left = 10.0
@@ -657,7 +662,7 @@ margin_bottom = -20.0
 ]]
 
 editor/display_folded = true
-position = Vector2( 640.481, 240.21 )
+position = Vector2( 640.481, 239.21 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -854,6 +859,8 @@ _sections_unfolded = [ "Visibility" ]
 [node name="eisberge" type="Node2D" parent="." index="8"]
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="pressed" from="CanvasLayer/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_RigidBody2D_body_entered"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://white.png" type="Texture" id=1]
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=1]
 
 code = "shader_type canvas_item;
 
@@ -55,18 +55,17 @@ void fragment() {
 	COLOR = vec4(mix(a, b, smoothstep(0.15, 1.4, ov(uv*400.0,TIME))));
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
-shader = SubResource( 4 )
+shader = SubResource( 1 )
 shader_param/pos = null
 _sections_unfolded = [ "shader" ]
 
 [node name="waterShader" type="Sprite" index="0"]
 
-visible = false
 show_behind_parent = true
-material = SubResource( 5 )
+material = SubResource( 2 )
 position = Vector2( 677.969, -3900.27 )
 scale = Vector2( 170, 170 )
 texture = ExtResource( 1 )

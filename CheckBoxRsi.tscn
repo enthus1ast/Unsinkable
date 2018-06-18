@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="CheckBoxRsi" type="CheckBox"]
+[node name="CheckBoxRsi" type="CheckBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -41,10 +41,11 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "(press \"up\" to auto shovel!)"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_colors" ]
 
 

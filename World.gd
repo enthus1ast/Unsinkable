@@ -53,8 +53,8 @@ func _ready():
 #	spawnClouds()
 	if config.cheat:
 		shipBody.position.y = -8500
-	if config.lowQuality:
-		$waterShader.visible = false
+	
+	$waterShader.visible = not config.lowQuality
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
@@ -146,7 +146,8 @@ func _on_RigidBody2D_body_entered(body):
 			lives.value -= 1
 		
 		if lives.value <= 0:
-			animationPlayer.play("kill")
+			if not animationPlayer.is_playing():
+				animationPlayer.play("kill")
 			yield(animationPlayer, "animation_finished")
 #			yield(get_tree().create_timer(3, true), "timeout")
 			get_tree().change_scene("res://Winner.tscn")

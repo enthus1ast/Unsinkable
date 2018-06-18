@@ -13,7 +13,7 @@
 [ext_resource path="res://titanic_h2.png" type="Texture" id=11]
 [ext_resource path="res://titanic.png" type="Texture" id=12]
 [ext_resource path="res://smoke.png" type="Texture" id=13]
-[ext_resource path="res://Wolke.tscn" type="PackedScene" id=14]
+[ext_resource path="res://CloudParticles.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Shader" id=1]
 
@@ -504,6 +504,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -512,6 +513,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -677,7 +679,6 @@ margin_right = 16.0
 "ship",
 ]]
 
-editor/display_folded = true
 position = Vector2( 640.481, 240.21 )
 input_pickable = false
 collision_layer = 1
@@ -833,6 +834,8 @@ playback_speed = 1.0
 anims/kill = SubResource( 16 )
 blend_times = [  ]
 
+[node name="CloudParticles" parent="RigidBody2D" index="11" instance=ExtResource( 14 )]
+
 [node name="icon" type="Sprite" parent="." index="6"]
 
 position = Vector2( 543.836, -18889.2 )
@@ -856,25 +859,16 @@ audio_bus_name = "Master"
 
 [node name="icon2" type="Sprite" parent="winner" index="0"]
 
-modulate = Color( 0.187683, 0.960938, 0, 1 )
+modulate = Color( 0.03125, 0, 1, 1 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winner" index="1"]
 
 shape = SubResource( 17 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="eisberge" type="Node2D" parent="." index="8"]
-
-[node name="Node2D" parent="." index="9" instance=ExtResource( 14 )]
-
-position = Vector2( 288.964, -518.439 )
-
-[node name="Node2D2" parent="." index="10" instance=ExtResource( 14 )]
-
-position = Vector2( 759.557, -384.501 )
-
-[node name="clouds" type="Node2D" parent="." index="11"]
 
 [connection signal="timeout" from="CanvasLayer/Control/time/Timer" to="." method="_on_Timer_timeout"]
 

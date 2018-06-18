@@ -11,6 +11,7 @@ onready var schaufel = $CanvasLayer/Control/ProgressBar/schaufel
 onready var kohleAufSchaufel = $CanvasLayer/Control/ProgressBar/schaufel/kohleAufSchaufel
 onready var foam = get_node("RigidBody2D/foam")
 onready var eisberge = get_node("eisberge")
+onready var camera2D = get_node("RigidBody2D/Camera2D")
 var keys = {}
 
 
@@ -52,7 +53,6 @@ func _process(delta):
 		if deltasumSchaufel > 0.20:
 			schaufelIn = not schaufelIn
 			deltasumSchaufel = 0
-		
 	
 	$CanvasLayer/Control/ProgressBar.value = power
 	deltasum += delta

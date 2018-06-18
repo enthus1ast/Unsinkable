@@ -20,11 +20,6 @@ config/icon="res://lifebelt_64x64.png"
 config="*res://config.tscn"
 music="*res://music.tscn"
 
-[display]
-
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-
 [input]
 
 steerLeft=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)

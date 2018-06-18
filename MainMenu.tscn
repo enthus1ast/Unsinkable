@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Winner.gd" type="Script" id=1]
 [ext_resource path="res://MenuBackgroundAnimation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CheckBoxRsi.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/Antique.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://clouds/cloud3.png" type="Texture" id=5]
-[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://steeringWheel.png" type="Texture" id=7]
-[ext_resource path="res://steeringWheel.gd" type="Script" id=8]
-[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://clouds/cloud1.png" type="Texture" id=6]
+[ext_resource path="res://Antique.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://steeringWheel.png" type="Texture" id=8]
+[ext_resource path="res://steeringWheel.gd" type="Script" id=9]
+[ext_resource path="res://ButtonFullscreen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -18,20 +19,20 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
-
-size = 200
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Font", "Settings" ]
-
 [sub_resource type="DynamicFont" id=3]
 
 size = 22
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 200
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -39,7 +40,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 60
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Control" type="Control" index="0"]
@@ -90,9 +91,10 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="CheckBoxRsi" parent="." index="2" instance=ExtResource( 3 )]
 
-margin_top = -54.0
-margin_right = 141.0
-margin_bottom = -25.0
+margin_left = 20.0
+margin_top = -70.0
+margin_right = 161.0
+margin_bottom = -41.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
@@ -101,104 +103,27 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 [node name="cloud3" type="Sprite" parent="CheckBoxRsi" index="0"]
 
 show_behind_parent = true
-position = Vector2( 96.9374, -46 )
+position = Vector2( 80, -100 )
 scale = Vector2( 2.37446, 2.54902 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="CheckBoxDisableShader" type="CheckBox" parent="CheckBoxRsi" index="2"]
+[node name="cloud1" type="Sprite" parent="CheckBoxRsi/cloud3" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 20.0
-margin_right = 370.0
-margin_bottom = 49.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Low quality "
-flat = false
-align = 0
-_sections_unfolded = [ "custom_fonts" ]
+position = Vector2( 58.8289, 85.9881 )
+rotation = 0.441645
+texture = ExtResource( 6 )
 
-[node name="code0" type="Label" parent="." index="3"]
-
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -272.0
-margin_top = -44.0
-margin_right = 4.0
-margin_bottom = 4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "a (one day) game by games.code0.xyz
-\"art\"work & programming David Krause
-guitar by Jan Kuske , drums by Daniel Wenz"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="LabelUnsinkable" type="Label" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-margin_bottom = 201.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 0.537255, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "UNSINKABLE"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_colors", "custom_fonts/font" ]
-
-[node name="steeringWheel" type="Sprite" parent="LabelUnsinkable" index="0"]
-
-position = Vector2( 512, 476 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 7 )
-script = ExtResource( 8 )
-_sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="Label" type="RichTextLabel" parent="LabelUnsinkable" index="1"]
+[node name="Label" type="RichTextLabel" parent="CheckBoxRsi" index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -502.0
-margin_top = 309.5
-margin_right = -144.0
-margin_bottom = 433.5
+margin_left = -50.5
+margin_top = -150.5
+margin_right = 307.5
+margin_bottom = -26.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -228,17 +153,103 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Bb Code", "Custom Colors", "Custom Fonts", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_fonts/normal_font", "custom_styles" ]
 
-[node name="btnPlay" type="Button" parent="LabelUnsinkable" index="2"]
+[node name="CheckBoxDisableShader" type="CheckBox" parent="CheckBoxRsi" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 30.0
+margin_right = 370.0
+margin_bottom = 59.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.179688, 0.179688, 0.179688, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Low quality "
+flat = false
+align = 0
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="code0" type="Label" parent="." index="3"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -274.0
+margin_top = -50.0
+margin_right = 2.0
+margin_bottom = -2.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "a (two day) game by games.code0.xyz
+artwork & programming David Krause
+guitar by Jan Kuske , drums by Daniel Wenz"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="LabelUnsinkable" type="Label" parent="." index="4"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = -99.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.537255, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "UNSINKABLE"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "Size Flags", "Visibility", "custom_colors", "custom_fonts/font" ]
+
+[node name="steeringWheel" type="Sprite" parent="LabelUnsinkable" index="0"]
+
+position = Vector2( 512, 476 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="btnPlay" type="Button" parent="LabelUnsinkable" index="1"]
 
 self_modulate = Color( 1, 1, 1, 0.856353 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -332.0
-margin_top = 250.0
-margin_right = -192.0
-margin_bottom = 116.0
+margin_left = -282.0
+margin_top = 310.0
+margin_right = -142.0
+margin_bottom = 176.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_next = NodePath("../btnQuit")
@@ -257,16 +268,16 @@ flat = false
 align = 1
 _sections_unfolded = [ "Custom Fonts", "Focus", "Visibility", "custom_fonts", "custom_fonts/font" ]
 
-[node name="btnQuit" type="Button" parent="LabelUnsinkable" index="3"]
+[node name="btnQuit" type="Button" parent="LabelUnsinkable" index="2"]
 
 self_modulate = Color( 1, 1, 1, 0.856353 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 318.0
+margin_left = 198.0
 margin_top = 470.0
-margin_right = 466.0
+margin_right = 346.0
 margin_bottom = 337.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -286,7 +297,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Custom Fonts", "Focus", "custom_fonts", "custom_fonts/font" ]
 
-[node name="ButtonFullscreen" parent="." index="5" instance=ExtResource( 9 )]
+[node name="ButtonFullscreen" parent="." index="5" instance=ExtResource( 10 )]
 
 margin_left = -72.0
 margin_top = 6.0
